@@ -1,18 +1,32 @@
+import { Link } from "react-router-dom"
+import { isAuthenticated } from "../api/data.js";
 
 const Header = () => {
+
+    const authenticated = isAuthenticated();
+
+    let userNavigation = (<div id="user">
+        <Link to="/create">Create Game</Link>
+        <Link id="logoutBtn" to="/logout">Logout</Link>
+    </div>);
+
+    let guestNavigation = (<div id="guest">
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+    </div>)
+
+    console.log(authenticated);
+    
+
     return (
         <header>
-            <h1><a className="home" href="/">GamesPlay</a></h1>
+            <h1><Link className="home" to="/">GamesPlay</Link></h1>
             <nav>
-                <a href="/catalog">All games</a>
-                <div id="user">
-                    <a href="/create">Create Game</a>
-                    <a id="logoutBtn" href="/logout">Logout</a>
-                </div>
-                <div id="guest">
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
-                </div>
+                <Link to="/catalog">All games</Link>
+
+                {authenticated 
+                ? userNavigation
+                : guestNavigation}
             </nav>
         </header>
     );

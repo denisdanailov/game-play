@@ -70,3 +70,12 @@ export async function createComment(gameId, comment) {
     });
 }
 
+export let getUser = () => {
+    let email = localStorage.getItem('email');
+
+    return email;
+};
+
+export const isAuthenticated = () => {
+    return Boolean(getUser())
+};
