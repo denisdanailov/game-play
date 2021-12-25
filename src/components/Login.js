@@ -1,14 +1,15 @@
 import { login } from "../api/data.js";
 import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = ({
+    
+}) => {
 
     let history = useHistory();
 
     const onFormSubmit = async (e) => {
         e.preventDefault();
 
-        
 
         const formData = new FormData(e.currentTarget);
         const email = formData.get('email').trim();
@@ -19,7 +20,7 @@ const Login = () => {
         }
 
         await login(email, password)
-
+        
         history.push('/');
     }
 

@@ -13,19 +13,34 @@ import { getUser } from './api/data.js';
 
 
 function App() {
- 
+  const [userInfo, setUserInfo] = useState({ isAuthenticated: false });
+
+  useEffect(() => {
+    let user = getUser();
+
+    setUserInfo({
+      isAuthenticated: Boolean(user)
+    })
+  }, []);
+
+  // const onLogin = () => {
+  //   setUserInfo({
+  //     isAuthenticated: true
+  //   })
+  // }
+
   return (
     <div id="box">
-      <Header />
+      <Header {...userInfo} />
 
       <main id="main-content">
         <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/create"  component={Create}/>
-        <Route path="/register"  component={Register}/>
-        <Route path="/catalog"  component={Catalog}/>
-        <Route path="/details/:gameId"  component={Details}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login}  />
+          <Route path="/create" component={Create} />
+          <Route path="/register" component={Register} />
+          <Route path="/catalog" component={Catalog} />
+          <Route path="/details/:gameId" component={Details} />
 
         </Switch>
       </main>

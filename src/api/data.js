@@ -71,7 +71,7 @@ export async function createComment(gameId, comment) {
 }
 
 export let getUser = () => {
-    let email = localStorage.getItem('email');
+    let email = sessionStorage.length > 0;
 
     return email;
 };

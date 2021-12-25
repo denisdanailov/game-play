@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
-import { isAuthenticated } from "../api/data.js";
+import { useHistory } from "react-router-dom";
 
-const Header = () => {
 
-    const authenticated = isAuthenticated();
+const Header = ({
+    isAuthenticated
+}) => {
+
+    // let history = useHistory(); 
 
     let userNavigation = (<div id="user">
         <Link to="/create">Create Game</Link>
@@ -15,8 +18,8 @@ const Header = () => {
         <Link to="/register">Register</Link>
     </div>)
 
-    console.log(authenticated);
-    
+    // console.log(authenticated);
+    // history.push('/catalog')
 
     return (
         <header>
@@ -24,7 +27,7 @@ const Header = () => {
             <nav>
                 <Link to="/catalog">All games</Link>
 
-                {authenticated 
+                {isAuthenticated 
                 ? userNavigation
                 : guestNavigation}
             </nav>
