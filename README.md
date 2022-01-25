@@ -1,6 +1,8 @@
-
+# Games-play
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
 
 ## Server
 
@@ -13,3 +15,5 @@ The service is initialized with three users, which can be used for immediate tes
     peter@abv.bg : 123456
     george@abv.bg : 123456
     admin@abv.bg : admin
+
+![alt text](https://raw.githubusercontent.com/denisdanailov/SoftUni-Software-Engineering/main/JS-Applications/GamesPlay%20SPA/images/screen.png)
